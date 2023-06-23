@@ -1,0 +1,11 @@
+onnx_model_path = "onnx_models/yolov5n.onnx"
+visualize = true
+out_img_path = "out_images"
+
+[input_data]
+imgsz = 320
+
+[predictor]
+conf_thres = 0.25
+iou_thres = 0.45
+classes = []
