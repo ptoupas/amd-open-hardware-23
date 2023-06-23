@@ -1,4 +1,4 @@
 [submodule "fpgaconvnet-model"]
 	path = fpgaconvnet-model
 	url = https://github.com/AlexMontgomerie/fpgaconvnet-model.git
-    branch = dac-sdc
+    branch = openhw
