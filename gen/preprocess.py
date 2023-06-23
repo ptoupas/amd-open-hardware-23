@@ -7,10 +7,10 @@ from fpgaconvnet.parser.Parser import Parser
 from fpgaconvnet.tools.layer_enum import LAYER_TYPE
 
 # definition of the model name
-model_name = "yolov5n-imgsz-320"
+model_name = "yolov5n"
 
 # edit the onnx graph to remove the post-processing
-graph = onnx.load(f"../models/{model_name}.onnx")
+graph = onnx.load(f"../onnx_models/{model_name}.onnx")
 
 # load with graph surgeon
 graph = gs.import_onnx(graph)
@@ -46,14 +46,6 @@ resize = next(filter(lambda x: x.name == "/model.11/Resize", graph.nodes))
 resize.inputs[1] = gs.Constant("roi_0", np.array([0.0,0.0,0.0,0.0]))
 resize = next(filter(lambda x: x.name == "/model.15/Resize", graph.nodes))
 resize.inputs[1] = gs.Constant("roi_1", np.array([0.0,0.0,0.0,0.0]))
-
-# # pad 255 to 256
-# conv_l.inputs[1] = gs.Constant("model.24.m.2.weight", np.concatenate((conv_l.inputs[1].values, np.zeros((1, 256, 1, 1)))))
-# conv_l.inputs[2] = gs.Constant("model.24.m.2.bias", np.concatenate((conv_l.inputs[2].values, np.zeros((1)))))
-# conv_m.inputs[1] = gs.Constant("model.24.m.1.weight", np.concatenate((conv_m.inputs[1].values, np.zeros((1, 128, 1, 1)))))
-# conv_m.inputs[2] = gs.Constant("model.24.m.1.bias", np.concatenate((conv_m.inputs[2].values, np.zeros((1)))))
-# conv_r.inputs[1] = gs.Constant("model.24.m.0.weight", np.concatenate((conv_r.inputs[1].values, np.zeros((1, 64, 1, 1)))))
-# conv_r.inputs[2] = gs.Constant("model.24.m.0.bias", np.concatenate((conv_r.inputs[2].values, np.zeros((1)))))
 
 # create the output nodes
 output_l = gs.Variable("output_2", shape=[1, 36, 10, 10], dtype="float32")
