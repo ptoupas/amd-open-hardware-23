@@ -1,7 +1,7 @@
 onnx_model_path = "onnx_models/yolov5n.onnx"
 visualize = true
 out_img_path = "out_images"
-source = "input_video/v_Biking_g23_c03.avi" # webcam for webcam, or path to video
+source = "webcam" # webcam for webcam, or path to video
 
 [input_data]
 imgsz = 320
