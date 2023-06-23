@@ -1,0 +1,19 @@
+[device]
+name = "ZCU104"
+#family = ""
+part = "xck26-sfvc784-2LV-c"
+board = "xilinx.com:kv260_som:part0:1.4"
+
+[resources]
+DSP   = 1728
+BRAM  = 624
+URAM  = 96
+FF    = 460800
+LUT   = 230400
+
+[system]
+board_frequency = 200 # in MHz
+memory_bandwidth = 100.0 # in Gbps
+# reconfiguration_time = 0.08255 # in seconds
+reconfiguration_time = 0.0 # in seconds
+port_width = 128
