@@ -51,6 +51,40 @@ for p in net.partitions:
         if p.graph.nodes[node]["type"] == LAYER_TYPE.Convolution:
             p.graph.nodes[node]["hw"].fine = np.prod(p.graph.nodes[node]["hw"].kernel_size)
             p.graph.nodes[node]["hw"].coarse_out = 2
+            # if node != "Conv_0":
+            #     p.graph.nodes[node]["hw"].coarse_in = 2
+
+# reduce certain coarse out
+net.partitions[0].graph.nodes["Conv_6"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_8"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_20"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_22"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_25"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_27"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_39"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_41"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_44"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_46"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_49"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_51"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_63"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_87"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_89"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_89"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_102"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_104"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_111"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_116"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_118"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_125"]["hw"].coarse_out = 1
+net.partitions[0].graph.nodes["Conv_130"]["hw"].coarse_out = 1
+
+# # set all 1x1 convolutions to coarse out 2 (issue with weights reloading)
+# for p in net.partitions:
+#     for node in p.graph.nodes:
+#         if p.graph.nodes[node]["type"] == LAYER_TYPE.Convolution:
+#             if np.prod(p.graph.nodes[node]["hw"].kernel_size) == 1:
+#                 p.graph.nodes[node]["hw"].coarse_out = 2
 
 # increase coarse out
 net.partitions[0].graph.nodes["Conv_14"]["hw"].coarse_out *= 2
@@ -66,6 +100,13 @@ net.partitions[0].graph.nodes["Conv_106"]["hw"].coarse_out *= 2
 net.partitions[0].graph.nodes["Conv_109"]["hw"].coarse_out *= 2
 net.partitions[0].graph.nodes["Conv_123"]["hw"].coarse_out *= 2
 net.partitions[0].graph.nodes["Conv_137"]["hw"].coarse_out *= 2
+# net.partitions[0].graph.nodes["Conv_139"]["hw"].coarse_out *= 2
+
+# increase coarse in of final layers
+net.partitions[0].graph.nodes["Conv_139"]["hw"].coarse_in *= 8
+net.partitions[0].graph.nodes["Conv_140"]["hw"].coarse_in *= 4
+net.partitions[0].graph.nodes["Conv_141"]["hw"].coarse_in *= 2
+
 
 # # set some layers to coarse out of 1
 # net.partitions[0].graph.nodes["Conv_116"]["hw"].coarse_out = 1
@@ -105,17 +146,17 @@ with open(f"config.json", "r") as f:
 ## correct input and output nodes
 config["partition"][0]["input_nodes"] = [
         "images",
-        "/model.6/cv3/act/Div_output_0",
-        "/model.4/cv3/act/Div_output_0",
-        "/model.10/act/Div_output_0",
+        "/model.6/cv3/act/Mul_output_0",
+        "/model.4/cv3/act/Mul_output_0",
+        # "/model.10/act/Mul_output_0",
     ]
 config["partition"][0]["output_nodes"] = [
-        "/model.4/cv3/act/Div_output_0",
-        "/model.6/cv3/act/Div_output_0",
-        "/model.10/act/Div_output_0",
-        "output_0",
-        "output_1",
-        "output_2",
+        "/model.4/cv3/act/Mul_output_0",
+        "/model.6/cv3/act/Mul_output_0",
+        # "/model.10/act/Mul_output_0",
+        "/model.24/m.2/Conv_output_0",
+        "/model.24/m.1/Conv_output_0",
+        "/model.24/m.0/Conv_output_0",
     ]
 
 # remove long branches
@@ -130,10 +171,10 @@ for i, layer in enumerate(config["partition"][0]["layers"]):
         for j, stream_out in enumerate(config["partition"][0]["layers"][i]["streams_out"]):
             if stream_out["node"] == "Concat_84":
                 config["partition"][0]["layers"][i]["streams_out"][j]["node"] = "HardSwish_58_split"
-    if layer["name"] == "HardSwish_82_split":
-        for j, stream_out in enumerate(config["partition"][0]["layers"][i]["streams_out"]):
-            if stream_out["node"] == "Concat_127":
-                config["partition"][0]["layers"][i]["streams_out"][j]["node"] = "HardSwish_82_split"
+    # if layer["name"] == "HardSwish_82_split":
+    #     for j, stream_out in enumerate(config["partition"][0]["layers"][i]["streams_out"]):
+    #         if stream_out["node"] == "Concat_127":
+    #             config["partition"][0]["layers"][i]["streams_out"][j]["node"] = "HardSwish_82_split"
 
     ## concat layers
     if layer["name"] == "Concat_84":
@@ -142,9 +183,9 @@ for i, layer in enumerate(config["partition"][0]["layers"]):
     if layer["name"] == "Concat_99":
         config["partition"][0]["layers"][i]["streams_in"][1]["node"] = "Concat_99"
         config["partition"][0]["layers"][i]["streams_in"][1]["buffer_depth"] = 0
-    if layer["name"] == "Concat_127":
-        config["partition"][0]["layers"][i]["streams_in"][1]["node"] = "Concat_127"
-        config["partition"][0]["layers"][i]["streams_in"][1]["buffer_depth"] = 0
+    # if layer["name"] == "Concat_127":
+    #     config["partition"][0]["layers"][i]["streams_in"][1]["node"] = "Concat_127"
+    #     config["partition"][0]["layers"][i]["streams_in"][1]["buffer_depth"] = 0
 
 
 # set first convolution to use distributed weights
@@ -194,6 +235,27 @@ for i, layer in enumerate(config["partition"][0]["layers"]):
         config["partition"][0]["layers"][i]["streams_in"][1]["buffer_depth"] = 7500
         config["partition"][0]["layers"][i]["streams_in"][2]["buffer_depth"] = 5000
         config["partition"][0]["layers"][i]["streams_in"][3]["buffer_depth"] = 2500
+
+    if layer["name"] == "Concat_127":
+        config["partition"][0]["layers"][i]["streams_in"][1]["buffer_depth"] = 15000
+
+# set specific binary points
+for i, layer in enumerate(config["partition"][0]["layers"]):
+
+    # find final convolution layers
+    if layer["name"] in ["Conv_139", "Conv_140", "Conv_141"]:
+        config["partition"][0]["layers"][i]["parameters"]["output_t"]["binary_point"] = 10
+
+    # also change last squeeze layers
+    if layer["name"] in ["squeeze_Conv_139", "squeeze_Conv_140", "squeeze_Conv_141"]:
+        config["partition"][0]["layers"][i]["parameters"]["data_t"]["binary_point"] = 10
+
+# # increase accum width for first layer
+# for i, layer in enumerate(config["partition"][0]["layers"]):
+
+#     # find first convolution layers
+#     if layer["name"] in ["Conv_0"]:
+#         config["partition"][0]["layers"][i]["parameters"]["acc_t"]["width"] = 40
 
 # save the updated config
 with open(f"config.json", "w") as f:

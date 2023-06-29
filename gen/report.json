@@ -1,0 +1,1904 @@
+{
+  "name": "from_onnx",
+  "date_created": "2023-06-27 14:15:20.629276",
+  "total_iterations": 0,
+  "platform": {
+    "part": "xck26-sfvc784-2LV-c",
+    "board": "xilinx.com:kv260_som:part0:1.4",
+    "resources": {
+      "DSP": 1728,
+      "BRAM": 624,
+      "URAM": 96,
+      "FF": 460800,
+      "LUT": 230400
+    },
+    "board_freq": 200,
+    "mem_bw": 100.0,
+    "mem_bw_wpc": 31.25,
+    "reconf_time": 0.0,
+    "port_width": 128
+  },
+  "total_operations": 561695120.0,
+  "network": {
+    "memory_usage": 1433600,
+    "multi_fpga": false,
+    "performance": {
+      "latency": 0.131354405,
+      "throughput": 7795.703539595797,
+      "performance": 4276180307.7711782,
+      "cycles": 26270881,
+      "partition_delay": 0.0
+    },
+    "num_partitions": 1,
+    "max_resource_usage": {
+      "LUT": 132185,
+      "FF": 118498,
+      "BRAM": 4051,
+      "DSP": 924,
+      "URAM": 0
+    },
+    "sum_resource_usage": {
+      "LUT": 132185,
+      "FF": 118498,
+      "BRAM": 4051,
+      "DSP": 924,
+      "URAM": 0
+    }
+  },
+  "partitions": {
+    "0": {
+      "partition_index": 0,
+      "batch_size": 1,
+      "num_layers": 166,
+      "latency": 0.131354405,
+      "cycles": 26270881,
+      "weights_reloading_factor": 1,
+      "weights_reloading_layer": "Conv_139",
+      "resource_usage": {
+        "LUT": 132185,
+        "FF": 118498,
+        "BRAM": 4051,
+        "DSP": 924,
+        "URAM": 0
+      },
+      "bandwidth": {
+        "in": [
+          0.009375
+        ],
+        "out": [
+          0.0125,
+          0.003125,
+          0.00078125
+        ]
+      },
+      "layers": {
+        "Conv_0": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1259712,
+          "cycle": 1259712,
+          "resource_usage": {
+            "LUT": 10103,
+            "FF": 11682,
+            "BRAM": 46,
+            "DSP": 144
+          }
+        },
+        "HardSwish_1": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 409600,
+          "cycle": 409600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_2": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 3359232,
+          "cycle": 3359232,
+          "resource_usage": {
+            "LUT": 3306,
+            "FF": 3408,
+            "BRAM": 22,
+            "DSP": 36
+          }
+        },
+        "HardSwish_3": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 204800,
+          "cycle": 204800,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_4": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 3276800,
+          "cycle": 3276800,
+          "resource_usage": {
+            "LUT": 929,
+            "FF": 718,
+            "BRAM": 5,
+            "DSP": 4
+          }
+        },
+        "HardSwish_5": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 102400,
+          "cycle": 102400,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_6": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1638400,
+          "cycle": 1638400,
+          "resource_usage": {
+            "LUT": 929,
+            "FF": 718,
+            "BRAM": 5,
+            "DSP": 4
+          }
+        },
+        "HardSwish_7": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 102400,
+          "cycle": 102400,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_8": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1721344,
+          "cycle": 1721344,
+          "resource_usage": {
+            "LUT": 3257,
+            "FF": 3403,
+            "BRAM": 18,
+            "DSP": 36
+          }
+        },
+        "HardSwish_9": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 102400,
+          "cycle": 102400,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Add_10": {
+          "type": "LAYER_TYPE.EltWise",
+          "interval": 102400.0,
+          "cycle": 102400.0,
+          "resource_usage": {
+            "LUT": 49,
+            "FF": 23,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_11": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 3276800,
+          "cycle": 3276800,
+          "resource_usage": {
+            "LUT": 929,
+            "FF": 718,
+            "BRAM": 5,
+            "DSP": 4
+          }
+        },
+        "HardSwish_12": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 102400,
+          "cycle": 102400,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Concat_13": {
+          "type": "LAYER_TYPE.Concat",
+          "interval": 204800.0,
+          "cycle": 204800.0,
+          "resource_usage": {
+            "LUT": 0,
+            "FF": 0,
+            "BRAM": 3,
+            "DSP": 0
+          }
+        },
+        "Conv_14": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 6553600,
+          "cycle": 6553600,
+          "resource_usage": {
+            "LUT": 978,
+            "FF": 723,
+            "BRAM": 6,
+            "DSP": 4
+          }
+        },
+        "HardSwish_15": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 204800,
+          "cycle": 204800,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_16": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 3442688,
+          "cycle": 3442688,
+          "resource_usage": {
+            "LUT": 3401,
+            "FF": 3437,
+            "BRAM": 52,
+            "DSP": 36
+          }
+        },
+        "HardSwish_17": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 102400,
+          "cycle": 102400,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_18": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 3276800,
+          "cycle": 3276800,
+          "resource_usage": {
+            "LUT": 978,
+            "FF": 723,
+            "BRAM": 8,
+            "DSP": 4
+          }
+        },
+        "HardSwish_19": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 51200,
+          "cycle": 51200,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_20": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1638400,
+          "cycle": 1638400,
+          "resource_usage": {
+            "LUT": 978,
+            "FF": 723,
+            "BRAM": 6,
+            "DSP": 4
+          }
+        },
+        "HardSwish_21": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 51200,
+          "cycle": 51200,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_22": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1806336,
+          "cycle": 1806336,
+          "resource_usage": {
+            "LUT": 3306,
+            "FF": 3428,
+            "BRAM": 32,
+            "DSP": 36
+          }
+        },
+        "HardSwish_23": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 51200,
+          "cycle": 51200,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Add_24": {
+          "type": "LAYER_TYPE.EltWise",
+          "interval": 51200.0,
+          "cycle": 51200.0,
+          "resource_usage": {
+            "LUT": 49,
+            "FF": 23,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_25": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1638400,
+          "cycle": 1638400,
+          "resource_usage": {
+            "LUT": 978,
+            "FF": 723,
+            "BRAM": 6,
+            "DSP": 4
+          }
+        },
+        "HardSwish_26": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 51200,
+          "cycle": 51200,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_27": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1806336,
+          "cycle": 1806336,
+          "resource_usage": {
+            "LUT": 3306,
+            "FF": 3428,
+            "BRAM": 32,
+            "DSP": 36
+          }
+        },
+        "HardSwish_28": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 51200,
+          "cycle": 51200,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Add_29": {
+          "type": "LAYER_TYPE.EltWise",
+          "interval": 51200.0,
+          "cycle": 51200.0,
+          "resource_usage": {
+            "LUT": 49,
+            "FF": 23,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_30": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 3276800,
+          "cycle": 3276800,
+          "resource_usage": {
+            "LUT": 978,
+            "FF": 723,
+            "BRAM": 8,
+            "DSP": 4
+          }
+        },
+        "HardSwish_31": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 51200,
+          "cycle": 51200,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Concat_32": {
+          "type": "LAYER_TYPE.Concat",
+          "interval": 102400.0,
+          "cycle": 102400.0,
+          "resource_usage": {
+            "LUT": 0,
+            "FF": 0,
+            "BRAM": 4,
+            "DSP": 0
+          }
+        },
+        "Conv_33": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 6553600,
+          "cycle": 6553600,
+          "resource_usage": {
+            "LUT": 1073,
+            "FF": 732,
+            "BRAM": 12,
+            "DSP": 4
+          }
+        },
+        "HardSwish_34": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 102400,
+          "cycle": 102400,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_35": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 3612672,
+          "cycle": 3612672,
+          "resource_usage": {
+            "LUT": 3594,
+            "FF": 3477,
+            "BRAM": 148,
+            "DSP": 36
+          }
+        },
+        "HardSwish_36": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 51200,
+          "cycle": 51200,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_37": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 3276800,
+          "cycle": 3276800,
+          "resource_usage": {
+            "LUT": 1073,
+            "FF": 733,
+            "BRAM": 20,
+            "DSP": 4
+          }
+        },
+        "HardSwish_38": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_39": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1638400,
+          "cycle": 1638400,
+          "resource_usage": {
+            "LUT": 1073,
+            "FF": 732,
+            "BRAM": 12,
+            "DSP": 4
+          }
+        },
+        "HardSwish_40": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_41": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1982464,
+          "cycle": 1982464,
+          "resource_usage": {
+            "LUT": 3401,
+            "FF": 3458,
+            "BRAM": 80,
+            "DSP": 36
+          }
+        },
+        "HardSwish_42": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Add_43": {
+          "type": "LAYER_TYPE.EltWise",
+          "interval": 25600.0,
+          "cycle": 25600.0,
+          "resource_usage": {
+            "LUT": 49,
+            "FF": 23,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_44": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1638400,
+          "cycle": 1638400,
+          "resource_usage": {
+            "LUT": 1073,
+            "FF": 732,
+            "BRAM": 12,
+            "DSP": 4
+          }
+        },
+        "HardSwish_45": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_46": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1982464,
+          "cycle": 1982464,
+          "resource_usage": {
+            "LUT": 3401,
+            "FF": 3458,
+            "BRAM": 80,
+            "DSP": 36
+          }
+        },
+        "HardSwish_47": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Add_48": {
+          "type": "LAYER_TYPE.EltWise",
+          "interval": 25600.0,
+          "cycle": 25600.0,
+          "resource_usage": {
+            "LUT": 49,
+            "FF": 23,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_49": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1638400,
+          "cycle": 1638400,
+          "resource_usage": {
+            "LUT": 1073,
+            "FF": 732,
+            "BRAM": 12,
+            "DSP": 4
+          }
+        },
+        "HardSwish_50": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_51": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1982464,
+          "cycle": 1982464,
+          "resource_usage": {
+            "LUT": 3401,
+            "FF": 3458,
+            "BRAM": 80,
+            "DSP": 36
+          }
+        },
+        "HardSwish_52": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Add_53": {
+          "type": "LAYER_TYPE.EltWise",
+          "interval": 25600.0,
+          "cycle": 25600.0,
+          "resource_usage": {
+            "LUT": 49,
+            "FF": 23,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_54": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 3276800,
+          "cycle": 3276800,
+          "resource_usage": {
+            "LUT": 1073,
+            "FF": 733,
+            "BRAM": 20,
+            "DSP": 4
+          }
+        },
+        "HardSwish_55": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Concat_56": {
+          "type": "LAYER_TYPE.Concat",
+          "interval": 51200.0,
+          "cycle": 51200.0,
+          "resource_usage": {
+            "LUT": 0,
+            "FF": 0,
+            "BRAM": 4,
+            "DSP": 0
+          }
+        },
+        "Conv_57": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 6553600,
+          "cycle": 6553600,
+          "resource_usage": {
+            "LUT": 1266,
+            "FF": 751,
+            "BRAM": 36,
+            "DSP": 4
+          }
+        },
+        "HardSwish_58": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 51200,
+          "cycle": 51200,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_59": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 3964928,
+          "cycle": 3964928,
+          "resource_usage": {
+            "LUT": 3978,
+            "FF": 3535,
+            "BRAM": 532,
+            "DSP": 36
+          }
+        },
+        "HardSwish_60": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_61": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 3276800,
+          "cycle": 3276800,
+          "resource_usage": {
+            "LUT": 1266,
+            "FF": 752,
+            "BRAM": 68,
+            "DSP": 4
+          }
+        },
+        "HardSwish_62": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 12800,
+          "cycle": 12800,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_63": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1638400,
+          "cycle": 1638400,
+          "resource_usage": {
+            "LUT": 1266,
+            "FF": 751,
+            "BRAM": 36,
+            "DSP": 4
+          }
+        },
+        "HardSwish_64": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 12800,
+          "cycle": 12800,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_65": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 2359296,
+          "cycle": 2359296,
+          "resource_usage": {
+            "LUT": 3594,
+            "FF": 3498,
+            "BRAM": 272,
+            "DSP": 36
+          }
+        },
+        "HardSwish_66": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 12800,
+          "cycle": 12800,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Add_67": {
+          "type": "LAYER_TYPE.EltWise",
+          "interval": 12800.0,
+          "cycle": 12800.0,
+          "resource_usage": {
+            "LUT": 49,
+            "FF": 23,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_68": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 3276800,
+          "cycle": 3276800,
+          "resource_usage": {
+            "LUT": 1266,
+            "FF": 752,
+            "BRAM": 68,
+            "DSP": 4
+          }
+        },
+        "HardSwish_69": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 12800,
+          "cycle": 12800,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Concat_70": {
+          "type": "LAYER_TYPE.Concat",
+          "interval": 25600.0,
+          "cycle": 25600.0,
+          "resource_usage": {
+            "LUT": 0,
+            "FF": 0,
+            "BRAM": 5,
+            "DSP": 0
+          }
+        },
+        "Conv_71": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 6553600,
+          "cycle": 6553600,
+          "resource_usage": {
+            "LUT": 1650,
+            "FF": 789,
+            "BRAM": 132,
+            "DSP": 4
+          }
+        },
+        "HardSwish_72": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_73": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 3276800,
+          "cycle": 3276800,
+          "resource_usage": {
+            "LUT": 1266,
+            "FF": 752,
+            "BRAM": 68,
+            "DSP": 4
+          }
+        },
+        "HardSwish_74": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 12800,
+          "cycle": 12800,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "MaxPool_75": {
+          "type": "LAYER_TYPE.Pooling",
+          "interval": 25088,
+          "cycle": 25088,
+          "resource_usage": {
+            "LUT": 4138,
+            "FF": 4772,
+            "BRAM": 32,
+            "DSP": 0
+          }
+        },
+        "MaxPool_76": {
+          "type": "LAYER_TYPE.Pooling",
+          "interval": 25088,
+          "cycle": 25088,
+          "resource_usage": {
+            "LUT": 4138,
+            "FF": 4772,
+            "BRAM": 32,
+            "DSP": 0
+          }
+        },
+        "MaxPool_77": {
+          "type": "LAYER_TYPE.Pooling",
+          "interval": 25088,
+          "cycle": 25088,
+          "resource_usage": {
+            "LUT": 4138,
+            "FF": 4772,
+            "BRAM": 32,
+            "DSP": 0
+          }
+        },
+        "Concat_78": {
+          "type": "LAYER_TYPE.Concat",
+          "interval": 51200.0,
+          "cycle": 51200.0,
+          "resource_usage": {
+            "LUT": 0,
+            "FF": 0,
+            "BRAM": 11,
+            "DSP": 0
+          }
+        },
+        "Conv_79": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 13107200,
+          "cycle": 13107200,
+          "resource_usage": {
+            "LUT": 1650,
+            "FF": 791,
+            "BRAM": 260,
+            "DSP": 4
+          }
+        },
+        "HardSwish_80": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_81": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 3276800,
+          "cycle": 3276800,
+          "resource_usage": {
+            "LUT": 1266,
+            "FF": 752,
+            "BRAM": 68,
+            "DSP": 4
+          }
+        },
+        "HardSwish_82": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 12800,
+          "cycle": 12800,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Resize_83": {
+          "type": "LAYER_TYPE.ReSize",
+          "interval": 12800,
+          "cycle": 12800,
+          "resource_usage": {
+            "LUT": 0,
+            "FF": 0,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Concat_84": {
+          "type": "LAYER_TYPE.Concat",
+          "interval": 102400.0,
+          "cycle": 102400.0,
+          "resource_usage": {
+            "LUT": 0,
+            "FF": 0,
+            "BRAM": 1,
+            "DSP": 0
+          }
+        },
+        "Conv_85": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 6553600,
+          "cycle": 6553600,
+          "resource_usage": {
+            "LUT": 1073,
+            "FF": 734,
+            "BRAM": 36,
+            "DSP": 4
+          }
+        },
+        "HardSwish_86": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_87": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1638400,
+          "cycle": 1638400,
+          "resource_usage": {
+            "LUT": 1073,
+            "FF": 732,
+            "BRAM": 12,
+            "DSP": 4
+          }
+        },
+        "HardSwish_88": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_89": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1982464,
+          "cycle": 1982464,
+          "resource_usage": {
+            "LUT": 3401,
+            "FF": 3458,
+            "BRAM": 80,
+            "DSP": 36
+          }
+        },
+        "HardSwish_90": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_91": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 6553600,
+          "cycle": 6553600,
+          "resource_usage": {
+            "LUT": 1073,
+            "FF": 734,
+            "BRAM": 36,
+            "DSP": 4
+          }
+        },
+        "HardSwish_92": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Concat_93": {
+          "type": "LAYER_TYPE.Concat",
+          "interval": 51200.0,
+          "cycle": 51200.0,
+          "resource_usage": {
+            "LUT": 0,
+            "FF": 0,
+            "BRAM": 6,
+            "DSP": 0
+          }
+        },
+        "Conv_94": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 6553600,
+          "cycle": 6553600,
+          "resource_usage": {
+            "LUT": 1266,
+            "FF": 751,
+            "BRAM": 36,
+            "DSP": 4
+          }
+        },
+        "HardSwish_95": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 51200,
+          "cycle": 51200,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_96": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 3276800,
+          "cycle": 3276800,
+          "resource_usage": {
+            "LUT": 1073,
+            "FF": 733,
+            "BRAM": 20,
+            "DSP": 4
+          }
+        },
+        "HardSwish_97": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Resize_98": {
+          "type": "LAYER_TYPE.ReSize",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 0,
+            "FF": 0,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Concat_99": {
+          "type": "LAYER_TYPE.Concat",
+          "interval": 204800.0,
+          "cycle": 204800.0,
+          "resource_usage": {
+            "LUT": 0,
+            "FF": 0,
+            "BRAM": 1,
+            "DSP": 0
+          }
+        },
+        "Conv_100": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 6553600,
+          "cycle": 6553600,
+          "resource_usage": {
+            "LUT": 978,
+            "FF": 724,
+            "BRAM": 12,
+            "DSP": 4
+          }
+        },
+        "HardSwish_101": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 51200,
+          "cycle": 51200,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_102": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1638400,
+          "cycle": 1638400,
+          "resource_usage": {
+            "LUT": 978,
+            "FF": 723,
+            "BRAM": 6,
+            "DSP": 4
+          }
+        },
+        "HardSwish_103": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 51200,
+          "cycle": 51200,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_104": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1806336,
+          "cycle": 1806336,
+          "resource_usage": {
+            "LUT": 3306,
+            "FF": 3428,
+            "BRAM": 32,
+            "DSP": 36
+          }
+        },
+        "HardSwish_105": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 51200,
+          "cycle": 51200,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_106": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 6553600,
+          "cycle": 6553600,
+          "resource_usage": {
+            "LUT": 978,
+            "FF": 724,
+            "BRAM": 12,
+            "DSP": 4
+          }
+        },
+        "HardSwish_107": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 51200,
+          "cycle": 51200,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Concat_108": {
+          "type": "LAYER_TYPE.Concat",
+          "interval": 102400.0,
+          "cycle": 102400.0,
+          "resource_usage": {
+            "LUT": 0,
+            "FF": 0,
+            "BRAM": 5,
+            "DSP": 0
+          }
+        },
+        "Conv_109": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 6553600,
+          "cycle": 6553600,
+          "resource_usage": {
+            "LUT": 1073,
+            "FF": 732,
+            "BRAM": 12,
+            "DSP": 4
+          }
+        },
+        "HardSwish_110": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 102400,
+          "cycle": 102400,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_111": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1806336,
+          "cycle": 1806336,
+          "resource_usage": {
+            "LUT": 3401,
+            "FF": 3458,
+            "BRAM": 84,
+            "DSP": 36
+          }
+        },
+        "HardSwish_112": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Concat_113": {
+          "type": "LAYER_TYPE.Concat",
+          "interval": 51200.0,
+          "cycle": 51200.0,
+          "resource_usage": {
+            "LUT": 0,
+            "FF": 0,
+            "BRAM": 1,
+            "DSP": 0
+          }
+        },
+        "Conv_114": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 3276800,
+          "cycle": 3276800,
+          "resource_usage": {
+            "LUT": 1073,
+            "FF": 733,
+            "BRAM": 20,
+            "DSP": 4
+          }
+        },
+        "HardSwish_115": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_116": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1638400,
+          "cycle": 1638400,
+          "resource_usage": {
+            "LUT": 1073,
+            "FF": 732,
+            "BRAM": 12,
+            "DSP": 4
+          }
+        },
+        "HardSwish_117": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_118": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1982464,
+          "cycle": 1982464,
+          "resource_usage": {
+            "LUT": 3401,
+            "FF": 3458,
+            "BRAM": 80,
+            "DSP": 36
+          }
+        },
+        "HardSwish_119": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_120": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 3276800,
+          "cycle": 3276800,
+          "resource_usage": {
+            "LUT": 1073,
+            "FF": 733,
+            "BRAM": 20,
+            "DSP": 4
+          }
+        },
+        "HardSwish_121": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Concat_122": {
+          "type": "LAYER_TYPE.Concat",
+          "interval": 51200.0,
+          "cycle": 51200.0,
+          "resource_usage": {
+            "LUT": 0,
+            "FF": 0,
+            "BRAM": 5,
+            "DSP": 0
+          }
+        },
+        "Conv_123": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 6553600,
+          "cycle": 6553600,
+          "resource_usage": {
+            "LUT": 1266,
+            "FF": 751,
+            "BRAM": 36,
+            "DSP": 4
+          }
+        },
+        "HardSwish_124": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 51200,
+          "cycle": 51200,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_125": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1982464,
+          "cycle": 1982464,
+          "resource_usage": {
+            "LUT": 3594,
+            "FF": 3498,
+            "BRAM": 276,
+            "DSP": 36
+          }
+        },
+        "HardSwish_126": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 12800,
+          "cycle": 12800,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Concat_127": {
+          "type": "LAYER_TYPE.Concat",
+          "interval": 25600.0,
+          "cycle": 25600.0,
+          "resource_usage": {
+            "LUT": 0,
+            "FF": 0,
+            "BRAM": 1,
+            "DSP": 0
+          }
+        },
+        "Conv_128": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 3276800,
+          "cycle": 3276800,
+          "resource_usage": {
+            "LUT": 1266,
+            "FF": 752,
+            "BRAM": 68,
+            "DSP": 4
+          }
+        },
+        "HardSwish_129": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 12800,
+          "cycle": 12800,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_130": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 1638400,
+          "cycle": 1638400,
+          "resource_usage": {
+            "LUT": 1266,
+            "FF": 751,
+            "BRAM": 36,
+            "DSP": 4
+          }
+        },
+        "HardSwish_131": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 12800,
+          "cycle": 12800,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_132": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 2359296,
+          "cycle": 2359296,
+          "resource_usage": {
+            "LUT": 3594,
+            "FF": 3498,
+            "BRAM": 272,
+            "DSP": 36
+          }
+        },
+        "HardSwish_133": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 12800,
+          "cycle": 12800,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_134": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 3276800,
+          "cycle": 3276800,
+          "resource_usage": {
+            "LUT": 1266,
+            "FF": 752,
+            "BRAM": 68,
+            "DSP": 4
+          }
+        },
+        "HardSwish_135": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 12800,
+          "cycle": 12800,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Concat_136": {
+          "type": "LAYER_TYPE.Concat",
+          "interval": 25600.0,
+          "cycle": 25600.0,
+          "resource_usage": {
+            "LUT": 0,
+            "FF": 0,
+            "BRAM": 7,
+            "DSP": 0
+          }
+        },
+        "Conv_137": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 6553600,
+          "cycle": 6553600,
+          "resource_usage": {
+            "LUT": 1650,
+            "FF": 789,
+            "BRAM": 132,
+            "DSP": 4
+          }
+        },
+        "HardSwish_138": {
+          "type": "LAYER_TYPE.HardSwish",
+          "interval": 25600,
+          "cycle": 25600,
+          "resource_usage": {
+            "LUT": 16,
+            "FF": 35,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Conv_139": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 26214400,
+          "cycle": 26214400,
+          "resource_usage": {
+            "LUT": 1650,
+            "FF": 788,
+            "BRAM": 36,
+            "DSP": 4
+          }
+        },
+        "Conv_140": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 13107200,
+          "cycle": 13107200,
+          "resource_usage": {
+            "LUT": 1650,
+            "FF": 788,
+            "BRAM": 68,
+            "DSP": 4
+          }
+        },
+        "Conv_141": {
+          "type": "LAYER_TYPE.Convolution",
+          "interval": 6553600,
+          "cycle": 6553600,
+          "resource_usage": {
+            "LUT": 1650,
+            "FF": 789,
+            "BRAM": 132,
+            "DSP": 4
+          }
+        },
+        "HardSwish_3_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 204800.0,
+          "cycle": 204800.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "HardSwish_5_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 102400.0,
+          "cycle": 102400.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "HardSwish_17_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 102400.0,
+          "cycle": 102400.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "HardSwish_19_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 51200.0,
+          "cycle": 51200.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Add_24_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 51200.0,
+          "cycle": 51200.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "HardSwish_34_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 102400.0,
+          "cycle": 102400.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "HardSwish_36_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 51200.0,
+          "cycle": 51200.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "HardSwish_38_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 25600.0,
+          "cycle": 25600.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Add_43_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 25600.0,
+          "cycle": 25600.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Add_48_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 25600.0,
+          "cycle": 25600.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "HardSwish_58_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 51200.0,
+          "cycle": 51200.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "HardSwish_60_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 25600.0,
+          "cycle": 25600.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "HardSwish_62_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 12800.0,
+          "cycle": 12800.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "HardSwish_74_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 12800.0,
+          "cycle": 12800.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "MaxPool_75_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 12800.0,
+          "cycle": 12800.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "MaxPool_76_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 12800.0,
+          "cycle": 12800.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "HardSwish_82_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 12800.0,
+          "cycle": 12800.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Concat_84_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 102400.0,
+          "cycle": 102400.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "HardSwish_97_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 25600.0,
+          "cycle": 25600.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Concat_99_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 204800.0,
+          "cycle": 204800.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "HardSwish_110_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 102400.0,
+          "cycle": 102400.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Concat_113_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 51200.0,
+          "cycle": 51200.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "HardSwish_124_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 51200.0,
+          "cycle": 51200.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        },
+        "Concat_127_split": {
+          "type": "LAYER_TYPE.Split",
+          "interval": 25600.0,
+          "cycle": 25600.0,
+          "resource_usage": {
+            "LUT": 13,
+            "FF": 15,
+            "BRAM": 0,
+            "DSP": 0
+          }
+        }
+      }
+    }
+  }
+}
