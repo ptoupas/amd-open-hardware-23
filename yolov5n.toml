@@ -15,6 +15,6 @@ classes = []
 
 [hardware]
 bitstream_path = "hardware/amd-openhw-23-zcu106.bit"
-weights_lookup_table = "hardware/weight-lookup.json"
-weights_path = "hardware/weights"
+weights_lookup_table = "weight-lookup.json"
+weights_path = "weights"
 
