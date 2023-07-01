@@ -1,7 +1,9 @@
 onnx_model_path = "onnx_models/yolov5n.onnx"
 visualize = true
 out_img_path = "out_images"
+inf_exec = "fpga" # cpu or fpga
 source = "webcam" # webcam for webcam, or path to video
+#source = "input_video/v_Biking_g23_c03.avi"
 
 [input_data]
 imgsz = 320
@@ -10,3 +12,8 @@ imgsz = 320
 conf_thres = 0.25
 iou_thres = 0.45
 classes = []
+
+[hardware]
+bitstream_path = "hardware/amd-openhw-23-zcu106.bit"
+weights_lookup_table = "hardware/weight-lookup.json"
+weights_path = "hardware/weights"
