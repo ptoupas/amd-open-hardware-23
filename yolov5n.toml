@@ -1,4 +1,4 @@
-onnx_model_path = "onnx_models/yolov5n.onnx"
+onnx_model_path = "onnx_models/yolov5n_head.onnx"
 visualize = true
 out_img_path = "out_images"
 source = "webcam" # webcam for webcam, or path to video
