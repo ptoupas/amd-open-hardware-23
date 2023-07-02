@@ -9,7 +9,7 @@ source = "webcam" # webcam for webcam, or path to video
 imgsz = 320
 
 [predictor]
-conf_thres = 0.3
+conf_thres = 0.25
 iou_thres = 0.5
 classes = []
 
