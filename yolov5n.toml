@@ -1,6 +1,7 @@
 onnx_model_path = "onnx_models/yolov5n.onnx"
 visualize = true
 out_img_path = "out_images"
+val_data_path = "coco128"
 inf_exec = "fpga" # cpu or fpga
 source = "webcam" # webcam for webcam, or path to video
 #source = "input_video/v_Biking_g23_c03.avi"
