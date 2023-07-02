@@ -1,5 +1,5 @@
 onnx = 1.13.1
-onnxruntime = 1.12.
+onnxruntime = 1.12.1
 numpy = 1.23.1
 opencv-python= 4.7.0.72
 toml = 0.10.2
