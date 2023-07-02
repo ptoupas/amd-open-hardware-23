@@ -1,4 +1,4 @@
-onnx_model_path = "onnx_models/yolov5n_head.onnx"
+onnx_model_path = "onnx_models/yolov5n.onnx"
 visualize = true
 out_img_path = "out_images"
 inf_exec = "fpga" # cpu or fpga
