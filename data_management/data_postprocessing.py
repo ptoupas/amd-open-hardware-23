@@ -35,6 +35,8 @@ def non_max_suppression(predictions: np.ndarray, scores: np.ndarray,
 
     keep = np.ones(rows, dtype=bool)
 
+    indices_to_keep = []
+
     for index, (iou, category) in enumerate(zip(ious, categories)):
         if not keep[index]:
             continue
@@ -42,7 +44,10 @@ def non_max_suppression(predictions: np.ndarray, scores: np.ndarray,
         condition = (iou > iou_threshold) & (categories == category)
         keep = keep & ~condition
 
-    return keep[sort_index.argsort()]
+        if keep[index]:
+            indices_to_keep.append(index)
+
+    return np.array(indices_to_keep)
 
 def yolo_nms(
         prediction,
