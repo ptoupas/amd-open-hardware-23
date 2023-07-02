@@ -47,10 +47,18 @@ resize.inputs[1] = gs.Constant("roi_0", np.array([0.0,0.0,0.0,0.0]))
 resize = next(filter(lambda x: x.name == "/model.15/Resize", graph.nodes))
 resize.inputs[1] = gs.Constant("roi_1", np.array([0.0,0.0,0.0,0.0]))
 
+# pad 255 to 256
+conv_l.inputs[1] = gs.Constant("model.24.m.2.weight", np.concatenate((conv_l.inputs[1].values, np.zeros((1, 256, 1, 1), dtype=np.float32))))
+conv_l.inputs[2] = gs.Constant("model.24.m.2.bias", np.concatenate((conv_l.inputs[2].values, np.zeros((1), dtype=np.float32))))
+conv_m.inputs[1] = gs.Constant("model.24.m.1.weight", np.concatenate((conv_m.inputs[1].values, np.zeros((1, 128, 1, 1), dtype=np.float32))))
+conv_m.inputs[2] = gs.Constant("model.24.m.1.bias", np.concatenate((conv_m.inputs[2].values, np.zeros((1), dtype=np.float32))))
+conv_r.inputs[1] = gs.Constant("model.24.m.0.weight", np.concatenate((conv_r.inputs[1].values, np.zeros((1, 64, 1, 1), dtype=np.float32))))
+conv_r.inputs[2] = gs.Constant("model.24.m.0.bias", np.concatenate((conv_r.inputs[2].values, np.zeros((1), dtype=np.float32))))
+
 # create the output nodes
-output_l = gs.Variable("output_2", shape=[1, 36, 10, 10], dtype="float32")
-output_m = gs.Variable("output_1", shape=[1, 36, 20, 20], dtype="float32")
-output_r = gs.Variable("output_0", shape=[1, 36, 40, 40], dtype="float32")
+output_l = gs.Variable("/model.24/m.0/Conv_output_0", shape=[1, 256, 10, 10], dtype="float32")
+output_m = gs.Variable("/model.24/m.1/Conv_output_0", shape=[1, 256, 20, 20], dtype="float32")
+output_r = gs.Variable("/model.24/m.2/Conv_output_0", shape=[1, 256, 40, 40], dtype="float32")
 
 # connect the output nodes
 conv_l.outputs = [ output_l ]
@@ -66,7 +74,7 @@ graph.cleanup()
 # save the reduced network
 graph = gs.export_onnx(graph)
 graph.ir_version = 8 # need to downgrade the ir version
-onnx.save(graph, f"../models/{model_name}-fpgaconvnet.onnx")
+onnx.save(graph, f"../onnx_models/{model_name}-fpgaconvnet.onnx")
 
 # create a parser
 parser = Parser(backend="chisel", quant_mode="auto", convert_gemm_to_conv=False, custom_onnx=False)
@@ -75,7 +83,7 @@ parser = Parser(backend="chisel", quant_mode="auto", convert_gemm_to_conv=False,
 # # TODO
 
 # parse the network and perform all optimisations
-net = parser.onnx_to_fpgaconvnet(f"../models/{model_name}-fpgaconvnet.onnx",
+net = parser.onnx_to_fpgaconvnet(f"../onnx_models/{model_name}-fpgaconvnet.onnx",
         "../zcu104.toml", False, save_opt_model=True)
 net.update_partitions()
 
@@ -84,12 +92,6 @@ for node in net.partitions[0].graph.nodes:
     if net.partitions[0].graph.nodes[node]["type"] == LAYER_TYPE.Convolution:
         net.partitions[0].graph.nodes[node]["hw"].fine = np.prod(net.partitions[0].graph.nodes[node]["hw"].kernel_size)
 net.update_partitions()
-
-# save the optimised model here
-onnx.save(net.model, "yolov5n-opt.onnx")
-
-# set the batch size to 1024
-net.batch_size = 1024
 
 # get resource and performance estimates
 print(f"predicted latency (us): {net.get_latency()*1000000}")
