@@ -36,7 +36,7 @@ def letterbox(im, new_shape=(640, 640), color=(114, 114, 114), auto=False, scale
 
 def img_preprocess(img, imgsz, stride):
     im, _, _ = letterbox(img, imgsz, stride)  # padded resiz
-    im = im.transpose((2, 0, 1))  # HWC to CHW
+#     im = im.transpose((2, 0, 1))  # HWC to CHW
     im = im.astype(np.float32)
     im /= 255  # 0 - 255 to 0.0 - 1.0
     if len(im.shape) == 3:
