@@ -18,7 +18,7 @@ This repository provides an FPGA-based solution for executing object detection, 
 
 ### Setup FPGA with PYNQ
 
-1. Download the latest PYNQ image for your FPGA board from [here](http://www.pynq.io/board.html). For this project, we used the `ZCU104` board which is officially supported by PYNQ. If you are using a different board, you may need to build the PYNQ image yourself. See [here](https://github.com/Xilinx/PYNQ/issues/1425#issuecomment-1601772627) how we built the PYNQ image for the `ZCU106` board.
+1. Download the latest PYNQ image for your FPGA board from [here](http://www.pynq.io/board.html). For this project, we used the `ZCU104` board which is officially supported by PYNQ. If you are using a different board, you may need to build the PYNQ image yourself. See [here](https://github.com/Xilinx/PYNQ/issues/1425#issuecomment-1601772627) how we built the PYNQ image for the `ZCU106` board.  
 ***Important Notice 1:*** *Make sure to download or build the ***v3.0.1*** version of the PYNQ image which is compatible with the Xilinx ***Vivado 2022*** version which is used to generate the final bistream.*
 2. Flash the PYNQ image to an SD card.
 3. Insert the SD card into the FPGA board and power it on.
