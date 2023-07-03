@@ -1,6 +1,6 @@
-# FPGA Object Detection with YOLOv5
+# YOLOv5 Object Detection on FPGAs with fpgaConvNet
 
-This repository provides an FPGA-based solution for executing object detection, focusing specifically on the popular YOLOv5 model architecture. By leveraging the power of Field-Programmable Gate Arrays (FPGAs) and utilizing both the [**fpgaConvNet**](https://github.com/AlexMontgomerie/fpgaconvnet-model) and the [**Xilinx PYNQ**](http://www.pynq.io/) frameworks, this solution enables high-performance and efficient execution of object detection tasks.
+This repository provides an FPGA-based solution for executing object detection, focusing specifically on the popular YOLOv5 model architecture. By leveraging the power of Field-Programmable Gate Arrays (FPGAs) and utilising both the [**fpgaConvNet**](https://github.com/AlexMontgomerie/fpgaconvnet-model) and the [**Xilinx PYNQ**](http://www.pynq.io/) frameworks, this solution enables high-performance and efficient execution of object detection tasks.
 
 <div align="center">
   <img src="https://github.com/ptoupas/amd-open-hardware-23/blob/main/resources/arch_overview.png" width="350px"/><br>
