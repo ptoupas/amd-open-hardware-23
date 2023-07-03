@@ -1,4 +1,5 @@
 import onnxruntime
+import time
 
 def load_model(model_path, gpu=False):
     providers = ['CUDAExecutionProvider', 'CPUExecutionProvider'] if gpu else ['CPUExecutionProvider']
@@ -14,7 +15,11 @@ def load_model(model_path, gpu=False):
     return stride, names, session, output_names
 
 def model_inf(img, session, output_names):
+
+    start_time = time.perf_counter()
     # inference
     outputs = session.run(output_names, {session.get_inputs()[0].name: img})
+    pred_time = (time.perf_counter() - start_time) * 1000
 
-    return outputs[0] if len(outputs) == 1 else [x for x in outputs]
+    results = outputs[0] if len(outputs) == 1 else [x for x in outputs]
+    return results, pred_time
