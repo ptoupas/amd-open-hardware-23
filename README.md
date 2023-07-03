@@ -2,6 +2,11 @@
 
 This repository provides an FPGA-based solution for executing object detection, focusing specifically on the popular YOLOv5 model architecture. By leveraging the power of Field-Programmable Gate Arrays (FPGAs) and utilizing both the [**fpgaConvNet**](https://github.com/AlexMontgomerie/fpgaconvnet-model) and the [**Xilinx PYNQ**](http://www.pynq.io/) frameworks, this solution enables high-performance and efficient execution of object detection tasks.
 
+<div align="center">
+  <img src="https://github.com/ptoupas/amd-open-hardware-23/blob/main/resources/arch_overview.png" width="350px"/><br>
+    <p style="font-size:1.5vw;">A high-level overview of the proposed solution for YOLOv5 acceleration with fpgaConvNet and PYNQ.</p>
+</div>
+
 ## Table of Contents
 
 - [Installation](#installation)
