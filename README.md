@@ -53,6 +53,7 @@ We provide a set of Jupyter notebooks that demonstrate the usage of the FPGA-bas
 | `comparison.ipynb` | This notebook provides a comparison between the performance of the FPGA-based solution and the CPU-based solution with ONNX. |
 | `predict_yolo.ipynb` | This notebook demonstrates how to use the FPGA-based solution to perform object detection through a webcam. It executes the YOLOv5 model on the FPGA and displays the results on the screen in real-time. |
 | `validate_yolo.ipynb` | This notebook provides a validation of the FPGA-based solution on the coco128 dataset. It executes the YOLOv5 model on the FPGA and displays the validation results on the screen. |
+| `measure-power.ipynb` | This notebook runs a single inference and collects power readings of the 12V rail via PMBus during execution. |
 
 
 ***Important Notice 3:*** *All of the above notebooks can be configured through various parameters that can be easily modified at the `yolov5n.toml` file located in the root directory of this repository. For more information about the available parameters, please refer to the [documentation](#documentation) section.*
