@@ -14,7 +14,7 @@ This repository provides an FPGA-based solution for executing object detection, 
 
 
 
-## Installation
+## Getting Started
 
 ### Setup FPGA with PYNQ
 
