@@ -50,41 +50,40 @@ for p in net.partitions:
     for node in p.graph.nodes:
         if p.graph.nodes[node]["type"] == LAYER_TYPE.Convolution:
             p.graph.nodes[node]["hw"].fine = np.prod(p.graph.nodes[node]["hw"].kernel_size)
-            p.graph.nodes[node]["hw"].coarse_out = 2
-            if node != "Conv_0":
-                p.graph.nodes[node]["hw"].coarse_in = 2
+            p.graph.nodes[node]["hw"].coarse_out = 4
 
 # reduce certain coarse out
-net.partitions[0].graph.nodes["Conv_6"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_8"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_20"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_22"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_25"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_27"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_39"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_41"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_44"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_46"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_49"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_51"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_63"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_87"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_89"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_89"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_102"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_104"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_111"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_116"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_118"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_125"]["hw"].coarse_out = 1
-net.partitions[0].graph.nodes["Conv_130"]["hw"].coarse_out = 1
+coarse_out_min = 2
+net.partitions[0].graph.nodes["Conv_6"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_8"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_20"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_22"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_25"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_27"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_39"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_41"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_44"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_46"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_49"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_51"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_63"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_87"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_89"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_89"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_102"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_104"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_111"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_116"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_118"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_125"]["hw"].coarse_out = coarse_out_min
+net.partitions[0].graph.nodes["Conv_130"]["hw"].coarse_out = coarse_out_min
 
 # increase coarse out
 net.partitions[0].graph.nodes["Conv_14"]["hw"].coarse_out *= 2
 net.partitions[0].graph.nodes["Conv_33"]["hw"].coarse_out *= 2
 net.partitions[0].graph.nodes["Conv_57"]["hw"].coarse_out *= 2
 net.partitions[0].graph.nodes["Conv_71"]["hw"].coarse_out *= 2
-net.partitions[0].graph.nodes["Conv_79"]["hw"].coarse_out *= 4
+net.partitions[0].graph.nodes["Conv_79"]["hw"].coarse_out *= 4 # too big
 net.partitions[0].graph.nodes["Conv_85"]["hw"].coarse_out *= 2
 net.partitions[0].graph.nodes["Conv_91"]["hw"].coarse_out *= 2
 net.partitions[0].graph.nodes["Conv_94"]["hw"].coarse_out *= 2
@@ -139,7 +138,6 @@ config["partition"][0]["input_nodes"] = [
 config["partition"][0]["output_nodes"] = [
         "/model.4/cv3/act/Mul_output_0",
         "/model.6/cv3/act/Mul_output_0",
-        # "/model.10/act/Mul_output_0",
         "/model.24/m.2/Conv_output_0",
         "/model.24/m.1/Conv_output_0",
         "/model.24/m.0/Conv_output_0",
@@ -162,7 +160,7 @@ for i, layer in enumerate(config["partition"][0]["layers"]):
         # get the depth of the weights
         depth = channels*filters//(coarse_in*coarse_out)
 
-        # set to uram if deep
+        # set to uram if wide and deep
         if depth > 3000:
             config["partition"][0]["layers"][i]["parameters"]["weights_ram_style"] = "ultra"
 
@@ -196,7 +194,7 @@ for i, layer in enumerate(config["partition"][0]["layers"]):
         config["partition"][0]["layers"][i]["streams_in"][3]["buffer_depth"] = 1500
 
     if layer["name"] == "Concat_127":
-        config["partition"][0]["layers"][i]["streams_in"][1]["buffer_depth"] = 5000
+        config["partition"][0]["layers"][i]["streams_in"][1]["buffer_depth"] = 7500
 
 # remove long branches
 for i, layer in enumerate(config["partition"][0]["layers"]):
@@ -225,21 +223,22 @@ for i, layer in enumerate(config["partition"][0]["layers"]):
     # convolution in layer
     if layer["name"] in ["Conv_0"]:
         config["partition"][0]["layers"][i]["parameters"]["input_t"]["binary_point"] = 12
+        config["partition"][0]["layers"][i]["parameters"]["acc_t"]["width"] = 48
 
     # find final convolution layers
     if layer["name"] in ["Conv_139", "Conv_140", "Conv_141"]:
-        config["partition"][0]["layers"][i]["parameters"]["output_t"]["binary_point"] = 9
+        config["partition"][0]["layers"][i]["parameters"]["output_t"]["binary_point"] = 10
 
     # also change last squeeze layers
     if layer["name"] in ["squeeze_Conv_139", "squeeze_Conv_140", "squeeze_Conv_141"]:
-        config["partition"][0]["layers"][i]["parameters"]["data_t"]["binary_point"] = 9
+        config["partition"][0]["layers"][i]["parameters"]["data_t"]["binary_point"] = 10
 
 # set certain layers to URAM
 for i, layer in enumerate(config["partition"][0]["layers"]):
 
     # find first convolution layers
-    if layer["name"] in ["Conv_140", "Conv_123"]:
-        config["partition"][0]["layers"][i]["parameters"]["weights_ram_style"] = "ultra"
+    if layer["name"] in ["Conv_2", "Conv_8"]:
+        config["partition"][0]["layers"][i]["parameters"]["weights_ram_style"] = "distributed"
 
 # save the updated config
 with open(f"config.json", "w") as f:
