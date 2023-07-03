@@ -83,10 +83,9 @@ This project is licensed under the GNU GPLv3 License - see the [LICENSE](https:/
 If you find this project useful in your research, please consider citing our work:
 ```BibTeX
 @article{toupas2023harflow3d,
-        title={HARFLOW3D: A Latency-Oriented 3D-CNN Accelerator Toolflow for HAR on FPGA Devices},
         author={Toupas, Petros and Montgomerie-Corcoran, Alexander and Bouganis, Christos-Savvas and Tzovaras, Dimitrios},
-        doi={10.48550/arXiv.2303.17218},
-        journal={arXiv preprint arXiv:2303.17218},
+        booktitle = {2023 31st International Symposium on Field-Programmable Custom Computing Machines (FCCM)},
+        title={HARFLOW3D: A Latency-Oriented 3D-CNN Accelerator Toolflow for HAR on FPGA Devices},
         year={2023}
 }
 
@@ -94,21 +93,13 @@ If you find this project useful in your research, please consider citing our wor
         author={Montgomerie-Corcoran, Alexander and Yu, Zhewen and Bouganis, Christos-Savvas},
         booktitle={2022 32nd International Conference on Field-Programmable Logic and Applications (FPL)},
         title={SAMO: Optimised Mapping of Convolutional Neural Networks to Streaming Architectures},
-        year={2022},
-        volume={},
-        number={},
-        pages={418-424},
-        doi={10.1109/FPL57034.2022.00069}
+        year={2022}
 }
 
 @article{venieris2019fpgaconvnet,
         author={Venieris, Stylianos I. and Bouganis, Christos-Savvas},
         journal={IEEE Transactions on Neural Networks and Learning Systems},
         title={fpgaConvNet: Mapping Regular and Irregular Convolutional Neural Networks on FPGAs},
-        year={2019},
-        volume={30},
-        number={2},
-        pages={326-342},
-        doi={10.1109/TNNLS.2018.2844093}
+        year={2019}
 }
 ```
