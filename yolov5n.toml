@@ -2,7 +2,7 @@ onnx_model_path = "onnx_models/yolov5n.onnx"
 visualize = true
 out_img_path = "out_images"
 val_data_path = "coco128"
-inf_exec = "cpu" # cpu or fpga
+inf_exec = "fpga" # cpu or fpga
 source = "webcam" # webcam for webcam, or path to video
 #source = "input_video/v_Biking_g23_c03.avi"
 
@@ -20,4 +20,4 @@ weights_lookup_table = "weight-lookup.json"
 weights_path = "weights"
 input_binary_point = 12
 output_binary_point = 10
-fifo_depth = [25600, 12800] 
+fifo_depth = [25600, 12800]
