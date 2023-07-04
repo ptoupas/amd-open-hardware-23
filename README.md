@@ -23,7 +23,7 @@ This repository provides an FPGA-based solution for executing object detection, 
 
 ### Setup FPGA with PYNQ
 
-1. Download the latest PYNQ image for your FPGA board from [here](http://www.pynq.io/board.html). For this project, we used the `ZCU104` board which is officially supported by PYNQ. If you are using a different board, you may need to build the PYNQ image yourself. See [here](https://github.com/Xilinx/PYNQ/issues/1425#issuecomment-1601772627) how we built the PYNQ image for the `ZCU106` board.  
+1. Download the latest PYNQ image for your FPGA board from [here](http://www.pynq.io/board.html). For this project, we used the `ZCU104` board which is officially supported by PYNQ. If you are using a different board, you may need to build the PYNQ image yourself. See [here](https://github.com/Xilinx/PYNQ/issues/1425#issuecomment-1601772627) how we built the PYNQ image for the `ZCU106` board.
 ***Important Notice 1:*** *Make sure to download or build the ***v3.0.1*** version of the PYNQ image which is compatible with the Xilinx ***Vivado 2022*** version which is used to generate the final bistream.*
 2. Flash the PYNQ image to an SD card.
 3. Insert the SD card into the FPGA board and power it on.
@@ -53,8 +53,6 @@ We provide a set of Jupyter notebooks that demonstrate the usage of the FPGA-bas
 | `comparison.ipynb` | This notebook provides a comparison between the performance of the FPGA-based solution and the CPU-based solution with ONNX. |
 | `predict_yolo.ipynb` | This notebook demonstrates how to use the FPGA-based solution to perform object detection through a webcam. It executes the YOLOv5 model on the FPGA and displays the results on the screen in real-time. |
 | `validate_yolo.ipynb` | This notebook provides a validation of the FPGA-based solution on the coco128 dataset. It executes the YOLOv5 model on the FPGA and displays the validation results on the screen. |
-| `measure-power.ipynb` | This notebook runs a single inference and collects power readings of the 12V rail via PMBus during execution. |
-
 
 ***Important Notice 3:*** *All of the above notebooks can be configured through various parameters that can be easily modified at the `yolov5n.toml` file located in the root directory of this repository. For more information about the available parameters, please refer to the [documentation](#documentation) section.*
 
