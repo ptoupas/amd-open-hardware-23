@@ -31,17 +31,15 @@ This repository provides an FPGA-based solution for executing object detection, 
 4. Once you have connected the board to your network connect to it via SSH. The default credentials are `xilinx` for both the username and password.
 
 ### Python Environment Setup
-Once you have connected to the FPGA board via SSH, clone this repository and run the following commands:
-
-***Important Notice 2:*** *The default environment where the jupyter notebooks are executed is the `pynq-venv` environment. In order to install the necessary dependencies, make sure that you have activated the `pynq-venv` environment before running the following commands. You can activate the `pynq-venv` environment by running the following command:*
+Once you have connected to the FPGA board via SSH, navigate to the `/home/xilinx/jupyter_notebooks` folder and clone this repository.
 ```shell
-$ source /usr/local/share/pynq-venv/bin/activate
-```
-After you have activated the `pynq-venv` environment, run the following commands to install the necessary dependencies:
-```shell
+$ cd /home/xilinx/jupyter_notebooks
 $ git clone --recurse-submodules https://github.com/ptoupas/amd-open-hardware-23
+```
+Navigate to the cloned repository and run the following commands to install the necessary dependencies:
+```shell
 $ cd amd-open-hardware-23
-$ pip install -r requirements.txt
+$ sudo pip install -r requirements.txt
 ```
 
 ## Usage
