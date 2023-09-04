@@ -1,3 +1,6 @@
+:trophy: [1st place winner](https://www.openhw.eu/2023-results-gallery) in the PhD category of the 2023 [AMD Open Hardware Competition](https://www.openhw.eu/) :trophy:
+
+
 # YOLOv5 Object Detection on FPGAs with fpgaConvNet
 
 This repository provides an FPGA-based solution for executing object detection, focusing specifically on the popular YOLOv5 model architecture. By leveraging the power of Field-Programmable Gate Arrays (FPGAs) and utilising both the [**fpgaConvNet**](https://github.com/AlexMontgomerie/fpgaconvnet-model) and the [**Xilinx PYNQ**](http://www.pynq.io/) frameworks, this solution enables high-performance and efficient execution of object detection tasks.
